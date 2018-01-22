@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<named-config name="itcast">
+		<!-- 配置文件的目的：配置连接的参数信息 -->
+		<!-- 使用property 配置连接参数  name属性，表示的连接参数的key 
+			标签中的内容，就是key对应值
+		  -->
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://172.16.11.5:3306/estore</property>
+		<property name="user">root</property>
+		<property name="password">root123</property>
+	</named-config>
+</c3p0-config>
