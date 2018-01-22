@@ -38,7 +38,15 @@
     <servlet-class>com.bank.xy.web.CheckYzmServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-   <servlet-name>checkyzm</servlet-name>
-   <url-pattern>/checkYzmServlet</url-pattern>
+    <servlet-name>checkyzm</servlet-name>
+    <url-pattern>/checkYzmServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>loginservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginservlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
 </web-app>

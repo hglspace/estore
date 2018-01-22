@@ -48,5 +48,17 @@ public class UserDaoImpl implements UserDao {
 			return -2;
 		}
 	}
+	@Override
+	public User findByNamePassword(String username, String password) {
+        QueryRunner qr = new QueryRunner(dataSource);
+        String sql = "select * from user where username=? and password=?";
+        try {
+			return qr.query(sql, new BeanHandler<User>(User.class), username,password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查询用户出错");
+		}
+	}
 
 }

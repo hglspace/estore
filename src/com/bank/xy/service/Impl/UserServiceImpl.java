@@ -23,4 +23,11 @@ public class UserServiceImpl implements UserService {
 		return ud.register(user);
 	}
 
+	@Override
+	public User findByNamePassword(String username, String password) {
+		// TODO Auto-generated method stub
+		password = MD5Utils.str2MD5(password);
+		return ud.findByNamePassword(username,password);
+	}
+
 }
