@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <div id="Top">
 	<div class="tops"></div>
 	<div class=" block header_bg" style="margin-bottom:0px;">
@@ -24,11 +25,14 @@
 						<script type="text/javascript" src="js/utils.js"></script>
 						<font id="ECS_MEMBERZONE"> 欢迎光临本店，
 					
-							
+							<c:if test="${empty loginUser }">
 							<a href="login.jsp">登录</a>
 							<a href="register.jsp">注册</a>
-						
-							
+						    </c:if>
+							<c:if test="${not empty loginUser }">
+							 ${loginUser.nickname}
+							 <a href="loginOut.jsp">[退出]</a>
+							</c:if>
 						</font>
 					</div>
 					<ul class="top_bav_l">
@@ -67,7 +71,7 @@
 					<div class="header_r">
 						<a href="orders.jsp">我的订单</a>
 						<a href="admin_index.jsp">商品管理</a>
-						<a href="goods.jsp">商品列表</a>
+						<a href="${root }/queryGoodsServlet">商品列表</a>
 					</div>
 				</div>
 			</div>

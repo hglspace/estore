@@ -49,4 +49,12 @@
     <servlet-name>loginservlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>queryGoodsServlet</servlet-name>
+    <servlet-class>com.bank.xy.web.QueryGoodsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>queryGoodsServlet</servlet-name>
+    <url-pattern>/queryGoodsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

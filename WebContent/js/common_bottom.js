@@ -41,9 +41,9 @@ if(typeof(HTMLElement)!="undefined")    // 给firefox定义contains()方法，ie
           while(obj!=null&&typeof(obj.tagName)!="undefind"){ // 通过循环对比来判断是不是obj的父元素
    　　　　if(obj==this) return true;   
    　　　　obj=obj.parentNode;
-   　　}   
+   　　};  
           return false;   
-      };   
+     };   
 }  
 function hideMsgBox(theEvent){ // theEvent用来传入事件，Firefox的方式
 　 if (theEvent){
