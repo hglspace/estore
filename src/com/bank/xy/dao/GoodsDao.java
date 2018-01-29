@@ -8,4 +8,6 @@ public interface GoodsDao {
 
 	List<Goods> findAllGoods();
 
+	Goods findById(int id);
+
 }

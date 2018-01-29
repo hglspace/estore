@@ -15,5 +15,9 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO Auto-generated method stub
 		return gs.findAllGoods();
 	}
+	@Override
+	public Goods findById(int id) {
+		return gs.findById(id);
+	}
 
 }

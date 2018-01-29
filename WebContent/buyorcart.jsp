@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
 
@@ -13,10 +15,10 @@
 	</div>
 	
 	<div>
-		<input onclick="location.href='/estore/goods.jsp';"
+		<input onclick="location.href='${root}/queryGoodsServlet';"
 		type="button" value="继续购物" class="btn2" />&nbsp;&nbsp;&nbsp;
 		
-		<input onclick="location.href='/estore/cart.jsp';" 
+		<input onclick="location.href='${root}/queryCartServlet';" 
 		type="button" value="去购物车结算" class="btn" />
 	</div>
 </div>

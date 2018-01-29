@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,7 +33,7 @@
 						
 						<c:forEach items="${gList}" var="g">
 						<div class="goodsItem" style="padding: 10px 4px 15px 1px;">
-							<a href="goods_detail.jsp">
+							<a href="${root}/queryGoodsDetailServlet?id=${g.id}">
 								<img src="/estore${g.imgurl}"
 								alt="${g.name}" class="goodsimg" />
 							</a><br />

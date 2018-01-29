@@ -27,18 +27,18 @@
 		<!-- 商品图片信息开始 -->
 		<div class="imgInfo">
 			<!-- 当前显示的大图 -->
-			<a href="images/201410/goods_img/139_P_1413929169416.jpg"
+			<a href="/estore${goods.imgurl}"
 				id="zoom1" class="MagicZoom MagicThumb">
-				<img src="images/201410/goods_img/139_P_1413929169416.jpg"
+				<img src="/estore${goods.imgurl}"
 				width="360px;" height="360px" />
 			</a>
 			<!-- 下方的图片列表 -->
 			<div class="picture" id="imglist">
-				<a href="images/201410/goods_img/139_P_1413929169416.jpg" rel="zoom1" 
-					rev="images/201410/goods_img/139_P_1413929169416.jpg">
-					<img src="images/201410/thumb_img/139_thumb_P_1413929169547.jpg" class="onbg" />
+				<a href="/estore${goods.imgurl}" rel="zoom1" 
+					rev="/estore${goods.imgurl}">
+					<img src="/estore${goods.imgurl}" class="onbg" />
 				</a>
-				<a href="images/201410/goods_img/139_P_1413929154557.jpg"
+				<!-- <a href="images/201410/goods_img/139_P_1413929154557.jpg"
 					rel="zoom1" rev="images/201410/goods_img/139_P_1413929154557.jpg">
 					<img src="images/201410/thumb_img/139_thumb_P_1413929154414.jpg" class="autobg" />
 				</a>
@@ -56,47 +56,41 @@
 					rel="zoom1" rev="images/201501/goods_img/139_P_1420324949546.jpg">
 					<img src="images/201501/thumb_img/139_thumb_P_1420324949384.jpg"
 					class="autobg" />
-				</a>
+				</a> -->
 			</div>
 			<script type="text/javascript">mypicBg();</script>
 		</div>
 		<!-- 商品文字信息 -->
 		<div class="textInfo">
-			<h1 class="clearfix">珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)</h1>
+			<h1 class="clearfix">${goods.name}</h1>
 			<ul class="ul2 clearfix">
 				<li class="clearfix">
 					<dd>
 						<strong>市场售价：</strong>
-						<font class="market">199元</font>
+						<font class="market">${goods.marketprice}元</font>
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
 						<strong>本店售价：</strong>
-						<font class="shop">155元</font>
+						<font class="shop">${goods.estoreprice}元</font>
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
-						<strong>商品库存：</strong> 99件
+						<strong>商品库存：</strong> ${goods.num }件
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
-						<strong>商品分类：</strong> 衣服
+						<strong>商品分类：</strong> ${goods.category }
 					</dd>
 				</li>
 				<li class="clearfix" style="width:100%;">
 					<dd>
 						<strong>商品描述：</strong>
 						<div style="text-indent: 2em;">
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
+						${goods.description }
 						</div>
 					</dd>
 				</li>
@@ -114,9 +108,15 @@
 					</dd>
 				</li>
 				<li class="padd">
-					<a href="buyorcart.jsp">
+					<a href="javascript:buy();">
 						<img src="themes/ecmoban_jumei/images/goumai2.gif" />
 					</a>
+					<script type="text/javascript">
+					   function buy(){
+						   var buynum=document.getElementById("buynum").value;
+						   location.href="${root}/addGoodsToCart?id=${goods.id}&buynum="+buynum;
+					   }
+					</script>
 				</li>
 			</ul>
 		</div>

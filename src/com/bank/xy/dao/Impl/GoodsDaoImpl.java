@@ -7,6 +7,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.bank.xy.dao.GoodsDao;
@@ -27,6 +28,18 @@ public class GoodsDaoImpl implements GoodsDao {
 			e.printStackTrace();
 			throw new RuntimeException("查询商品失败");
 		}
+	}
+	@Override
+	public Goods findById(int id) {
+	   QueryRunner qr = new QueryRunner(dataSource);
+	   String sql = "select * from goods where id=?";
+	   try {
+		    return qr.query(sql, new BeanHandler<Goods>(Goods.class), id);
+	    } catch (SQLException e) {
+		// TODO Auto-generated catch block
+		    e.printStackTrace();
+		    throw new RuntimeException("查询商品详情失败");
+	    }
 	}
 
 }

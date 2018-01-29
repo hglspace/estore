@@ -8,4 +8,6 @@ public interface GoodsService {
 
 	List<Goods> findAllGoods();
 
+	Goods findById(int id);
+
 }

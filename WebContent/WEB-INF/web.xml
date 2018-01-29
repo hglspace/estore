@@ -57,4 +57,28 @@
     <servlet-name>queryGoodsServlet</servlet-name>
     <url-pattern>/queryGoodsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>queryGoodsDetail</servlet-name>
+    <servlet-class>com.bank.xy.web.QueryGoodsDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>queryGoodsDetail</servlet-name>
+    <url-pattern>/queryGoodsDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addGoodsToCart</servlet-name>
+    <servlet-class>com.bank.xy.web.AddGoodsToCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addGoodsToCart</servlet-name>
+    <url-pattern>/addGoodsToCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>queryCartServlet</servlet-name>
+    <servlet-class>com.bank.xy.web.QueryCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>queryCartServlet</servlet-name>
+    <url-pattern>/queryCartServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
