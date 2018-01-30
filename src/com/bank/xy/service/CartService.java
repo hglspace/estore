@@ -10,4 +10,8 @@ public interface CartService {
 
 	List<Cart> findUserCart(int id);
 
+	int updateCart(int id, int gid, int buynum);
+
+	int deleteCart(int id, int gid);
+
 }

@@ -35,7 +35,7 @@
 								<th bgcolor="#ffffff" width="160px">操作</th>
 							</tr>
 							<c:if test="${empty list }">
-								暂时还没有商品哟.....<a href="${root}/queryGoodServlet">去逛逛</a>
+								暂时还没有商品哟.....<a href="${root}/queryGoodsServlet">去逛逛</a>
 							</c:if>
 							<c:if test="${not empty list }">
 					<%-- 		<c:set var="sum" value="0"></c:set>
@@ -60,11 +60,22 @@
 								<td align="center" bgcolor="#ffffff">${cc.goods.marketprice }元</td>
 								<td align="center" bgcolor="#ffffff">${cc.goods.estoreprice }元</td>
 								<td align="center" bgcolor="#ffffff">
-									<input value="${cc.buynum }" size="4" class="inputBg" style="text-align:center;" />
+									<input value="${cc.buynum }" size="4" class="inputBg" style="text-align:center;" 
+									onblur="_changenum(${cc.gid},this.value)"/>
+									<script type="text/javascript">
+									   function _changenum(gid,buynum){
+										   location.href="${root}/changeBuyNumServlet?gid="+gid+"&buynum="+buynum;
+									   }
+									</script>
 								</td>
 								<td align="center" bgcolor="#ffffff">${cc.goods.estoreprice * cc.buynum}元</td>
 								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">删除</a>
+									<a href="javascript:_deleteCart(${cc.gid});" class="f6">删除</a>
+									<script type="text/javascript">
+									  function _deleteCart(gid){
+										  location.href="${root}/deleteCartServlet?gid="+gid;
+									  }
+									</script>
 								</td>
 							</tr>
 							</c:forEach>

@@ -14,4 +14,6 @@ public interface CartDao {
 
 	List<Cart> findByUid(int id);
 
+	int deleteCart(int id, int gid);
+
 }

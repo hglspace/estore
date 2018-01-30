@@ -39,5 +39,19 @@ public class CartServiceImpl implements CartService {
 		}
 		return list;
 	}
+	@Override
+	public int updateCart(int id, int gid, int buynum) {
+		// TODO Auto-generated method stub
+		Cart cart = new Cart();
+		cart.setUid(id);
+		cart.setGid(gid);
+		cart.setBuynum(buynum);
+		return cd.updateCart(cart);
+	}
+	@Override
+	public int deleteCart(int id, int gid) {
+		// TODO Auto-generated method stub
+		return cd.deleteCart(id,gid);
+	}
 
 }

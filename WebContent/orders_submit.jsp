@@ -63,7 +63,9 @@
 		</table>
 		<!---------收货人信息结束---------->
 		
+		
 		<!----------商品列表开始----------->
+		
 		<div class="blank"></div>
 		<h5><span>商品列表</span></h5>
 		<table width="100%" border="0" cellpadding="5" cellspacing="1"
@@ -75,35 +77,27 @@
 				<th width="15%" align="center">购买数量</th>
 				<th align="center">小计</th>
 			</tr>
+			<c:if test="${ empty list }">
+	        购物车中没有商品信息
+           </c:if>
+           <c:if test="${not empty list}">
+           <c:forEach items="${list}" var="cc">
+           <c:set var="sum" value="${ sum + cc.goods.estoreprice * cc.buynum }" />
+		  <c:set var="json" value="${ json + (cc.goods.marketprice - cc.goods.estoreprice) * cc.buynum }" />
 			<tr>
 				<td>
-					<a href="javascript:;" class="f6">佳洁士全优7效牙膏+漱口水装</a>
+					<a href="javascript:;" class="f6">${cc.goods.name}</a>
 				</td>
-				<td>26.40元</td>
-				<td>22.00元</td>
-				<td align="center">1</td>
-				<td>22.00元</td>
+				<td>${cc.goods.marketprice}元</td>
+				<td>${cc.goods.estoreprice}元</td>
+				<td align="center">${cc.buynum}</td>
+				<td>${cc.goods.estoreprice*cc.buynum}元</td>
 			</tr>
-			<tr>
-				<td><a href="goods.php?id=139"
-					target="_blank" class="f6">珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)</a>
-				</td>
-				<td>193.00元</td>
-				<td>110.00元</td>
-				<td align="center">2</td>
-				<td>220.00元</td>
-			</tr>
-			<tr>
-				<td><a href="goods.php?id=141"
-					target="_blank" class="f6">兰蔻清滢柔肤水400ml</a></td>
-				<td>420.00元</td>
-				<td>110.00元</td>
-				<td align="center">3</td>
-				<td>330.00元</td>
-			</tr>
+			</c:forEach>
+			</c:if>
 			<tr>
 				<td colspan="5" style="text-align:right;padding-right:10px;font-size:25px;">
-					商品总价&nbsp;<font color="red">&yen;572.00</font>元
+					商品总价&nbsp;<font color="red">&yen;${sum}</font>元
 					<input type="submit" value="提交订单" class="btn" />
 				</td>
 			</tr>

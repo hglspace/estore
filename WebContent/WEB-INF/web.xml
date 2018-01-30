@@ -81,4 +81,20 @@
     <servlet-name>queryCartServlet</servlet-name>
     <url-pattern>/queryCartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>changebuynumservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.ChangeBuyNumServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changebuynumservlet</servlet-name>
+    <url-pattern>/changeBuyNumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>deletecartservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.DeleteCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletecartservlet</servlet-name>
+    <url-pattern>/deleteCartServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

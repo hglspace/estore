@@ -74,5 +74,19 @@ public class CartDaoImpl implements CartDao {
 		}
 	}
 
+	@Override
+	public int deleteCart(int id, int gid) {
+		// TODO Auto-generated method stub
+		QueryRunner qr = new QueryRunner(dataSource);
+		String sql = "delete from cart where uid=? and gid=?";
+		try {
+			return qr.update(sql, id,gid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("删除购物车数据异常");
+		}
+	}
+
 
 }
