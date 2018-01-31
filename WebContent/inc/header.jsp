@@ -69,7 +69,7 @@
 							</div></li>
 					</ul>
 					<div class="header_r">
-						<a href="orders.jsp">我的订单</a>
+						<a href="${root}/queryOrderServlet">我的订单</a>
 						<a href="admin_index.jsp">商品管理</a>
 						<a href="${root }/queryGoodsServlet">商品列表</a>
 					</div>

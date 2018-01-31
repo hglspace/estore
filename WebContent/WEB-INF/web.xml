@@ -97,4 +97,20 @@
     <servlet-name>deletecartservlet</servlet-name>
     <url-pattern>/deleteCartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>submitorderservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.SubmitOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>submitorderservlet</servlet-name>
+    <url-pattern>/submitOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>queryorderservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.QueryOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>queryorderservlet</servlet-name>
+    <url-pattern>/queryOrderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,5 +1,6 @@
 package com.bank.xy.dao.Impl;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.bank.xy.dao.CartDao;
 import com.bank.xy.pojo.Cart;
+import com.bank.xy.pojo.OrderItems;
 import com.bank.xy.utils.JDBCUtils;
 
 public class CartDaoImpl implements CartDao {
@@ -85,6 +87,16 @@ public class CartDaoImpl implements CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("删除购物车数据异常");
+		}
+	}
+
+	@Override
+	public void clearCart(Connection conn, int uid, List<OrderItems> getoList) throws SQLException {
+		// TODO Auto-generated method stub
+		QueryRunner qr = new QueryRunner();
+		for (OrderItems orderItems : getoList) {
+			String sql = "delete from cart where uid=? and gid=?";
+			qr.update(conn, sql, uid,orderItems.getGid());
 		}
 	}
 

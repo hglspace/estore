@@ -20,7 +20,7 @@
 		</div>
 	</div><div class="blank"></div><div class="box"><div class="box_1">
 	<div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
-	<form action="${root }/orders.jsp" method="post">
+	<form action="${root}/submitOrderServlet" method="post">
 		<!---------收货人信息开始---------->
 		<h5><span>收货人信息</span></h5>
 		<table width="100%" align="center" border="0" cellpadding="5"

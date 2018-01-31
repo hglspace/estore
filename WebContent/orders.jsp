@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,46 +32,35 @@
 								<td bgcolor="#ffffff">订单状态</td>
 								<td bgcolor="#ffffff" width="200px">操作</td>
 							</tr>
+							 <c:if test="${empty orList }">
+						 	当前没有订单数据
+						    </c:if>
+						    <c:if test="${not empty orList}">
+						    <c:forEach items="${orList}" var="order">
 							<tr>
 								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052674732</a>
+									<a href="javascript:;" class="f6">${order.id}</a>
 								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 16:36:11</td>
-								<td align="right" bgcolor="#ffffff">582.00元</td>
+								<td align="center" bgcolor="#ffffff">${order.createtime}</td>
+								<td align="right" bgcolor="#ffffff">${order.totalprice}元</td>
 								<td align="center" bgcolor="#ffffff">
+									<c:if test="${order.status==1 }">
 									<font color="red">未支付</font>
+								</c:if>
+								<c:if test="${order.status==2 }">
+									<font color="green">已支付</font>
+								</c:if>
+								<c:if test="${order.status==3 }">
+									<font color="gray">已过期</font>
+								</c:if>
 								</td>
 								<td align="center" bgcolor="#ffffff">
 									<a href="orders_detail.jsp">在线支付</a>&nbsp;
 									<a href="javascript:;">取消订单</a>
 								</td>
 							</tr>
-							<tr>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052674733</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 16:36:11</td>
-								<td align="right" bgcolor="#ffffff">999.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<font color="green">已支付</font>
-								</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="orders_detail.jsp">查看详情</a>
-								</td>
-							</tr>
-							<tr>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052627261</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 15:02:32</td>
-								<td align="right" bgcolor="#ffffff">560.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<font color="gray">已过期</font>
-								</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="orders_detail.jsp">查看详情</a>
-								</td>
-							</tr>
+							</c:forEach>
+						    </c:if>
 						</table>
 					</div>
 				</div>
