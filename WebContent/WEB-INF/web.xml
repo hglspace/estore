@@ -113,4 +113,12 @@
     <servlet-name>queryorderservlet</servlet-name>
     <url-pattern>/queryOrderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>orderdetailservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.OrderDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>orderdetailservlet</servlet-name>
+    <url-pattern>/orderdetailservlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -12,4 +12,6 @@ public interface OrdersDao {
 
 	List<Orders> findAll(int uid);
 
+	Orders findOrderByOidAndUid(String oid, int uid);
+
 }

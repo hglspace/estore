@@ -10,4 +10,6 @@ public interface OrdersService {
 
 	List<Orders> findAll(int uid);
 
+	Orders findOrder(String oid, int uid);
+
 }

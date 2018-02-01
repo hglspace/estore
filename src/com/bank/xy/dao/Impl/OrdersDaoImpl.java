@@ -8,6 +8,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.bank.xy.dao.OrdersDao;
@@ -45,6 +46,18 @@ public class OrdersDaoImpl implements OrdersDao {
 			throw new RuntimeException("查询订单失败");
 		}
 
+	}
+	@Override
+	public Orders findOrderByOidAndUid(String oid, int uid) {
+		QueryRunner qr= new QueryRunner(dataSource);
+		String sql = "select * from orders where id=? and uid=?";
+		try {
+			return qr.query(sql, new BeanHandler<Orders>(Orders.class), oid,uid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查询订单出错");
+		}
 	}
 
 }

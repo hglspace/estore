@@ -5,11 +5,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.bank.xy.dao.CartDao;
+import com.bank.xy.dao.GoodsDao;
 import com.bank.xy.dao.OrderItemDao;
 import com.bank.xy.dao.OrdersDao;
 import com.bank.xy.dao.Impl.CartDaoImpl;
+import com.bank.xy.dao.Impl.GoodsDaoImpl;
 import com.bank.xy.dao.Impl.OrderItemDaoImpl;
 import com.bank.xy.dao.Impl.OrdersDaoImpl;
+import com.bank.xy.pojo.Goods;
 import com.bank.xy.pojo.OrderItems;
 import com.bank.xy.pojo.Orders;
 import com.bank.xy.service.CartService;
@@ -22,6 +25,7 @@ public class OrdersServiceImpl implements OrdersService {
 	private static OrdersDao od = new OrdersDaoImpl();
 	private static OrderItemDao otd = new OrderItemDaoImpl();
 	private static CartDao cd = new CartDaoImpl();
+	private static GoodsDao gd = new GoodsDaoImpl();
 	@Override
 	public void addOrders(Orders order) {
 
@@ -55,8 +59,19 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 	@Override
 	public List<Orders> findAll(int uid) {
-		// TODO Auto-generated method stub
 		return od.findAll(uid);
+	}
+	@Override
+	public Orders findOrder(String oid, int uid) {
+        Orders orders=od.findOrderByOidAndUid(oid,uid);
+        List<OrderItems> oList = otd.findByOid(oid);
+        for (OrderItems orderItems : oList) {
+			int gid = orderItems.getGid();
+			Goods goods = gd.findById(gid);
+			orderItems.setGoods(goods);
+		}
+        orders.setoList(oList);
+		return orders;
 	}
 
 }

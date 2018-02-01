@@ -39,7 +39,12 @@
 						    <c:forEach items="${orList}" var="order">
 							<tr>
 								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">${order.id}</a>
+								<script type="text/javascript">
+									  function _queryOrders(oid){
+										  location.href="${root}/orderdetailservlet?oid="+oid;
+									  }
+									</script>
+									<a href="javascript:_queryOrders('${order.id}');" class="f6">${order.id}</a>
 								</td>
 								<td align="center" bgcolor="#ffffff">${order.createtime}</td>
 								<td align="right" bgcolor="#ffffff">${order.totalprice}元</td>

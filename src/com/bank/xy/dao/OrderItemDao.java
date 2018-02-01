@@ -10,4 +10,6 @@ public interface OrderItemDao {
 
 	void addOrderItem(Connection conn, List<OrderItems> getoList) throws SQLException;
 
+	List<OrderItems> findByOid(String oid);
+
 }
