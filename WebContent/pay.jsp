@@ -9,7 +9,7 @@
 	.mytable td{text-align:center;}
 </style>
 </head>
-
+<!-- 付款 -->
 <body>
 	<%@include file="inc/header.jsp"%>
 	<div class="block clearfix">
