@@ -73,5 +73,49 @@ public class OrdersServiceImpl implements OrdersService {
         orders.setoList(oList);
 		return orders;
 	}
+	@Override
+	public void deleteOrderById(String oid) {
+
+		Connection conn = null;
+		try {
+			//获取连接
+			conn = JDBCUtils.getConnection();
+			//设置手动提交事务
+			conn.setAutoCommit(false);
+			//业务处理
+			//2.删除订单明细表
+			otd.deleteOrderItems(conn,oid);//orders和orderitmes有外键关联，所以先删除这个
+			//1.删除订单表
+			od.deleteOrder(conn,oid);
+		} catch (Exception e) {
+			//回滚数据
+			if(conn!=null){
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		}finally{
+			//提交事务
+			if(conn!=null){
+				try {
+					conn.commit();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+	@Override
+	public List<Orders> queryOrderStatus(int status) {
+       return od.queryOrderStatus(status);
+	}
+	@Override
+	public void changeOrderStatus(String id) {
+		// TODO Auto-generated method stub
+		od.updateOrderStatus(id);
+	}
 
 }

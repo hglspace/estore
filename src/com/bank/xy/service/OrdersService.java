@@ -12,4 +12,10 @@ public interface OrdersService {
 
 	Orders findOrder(String oid, int uid);
 
+	void deleteOrderById(String oid);
+
+	List<Orders> queryOrderStatus(int status);
+
+	void changeOrderStatus(String id);
+
 }

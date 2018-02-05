@@ -17,6 +17,14 @@
     <filter-name>Encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>loginfilter</filter-name>
+    <filter-class>com.bank.xy.filter.ValidateLogin</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>registerUser</servlet-name>
     <servlet-class>com.bank.xy.web.RegisterServlet</servlet-class>
@@ -121,4 +129,31 @@
     <servlet-name>orderdetailservlet</servlet-name>
     <url-pattern>/orderdetailservlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>deleteorderservlet</servlet-name>
+    <servlet-class>com.bank.xy.web.DeleteOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteorderservlet</servlet-name>
+    <url-pattern>/deleteOrderServlet</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500.jsp</location>
+  </error-page>
+  <filter>
+    <filter-name>privilegefilter</filter-name>
+    <filter-class>com.bank.xy.filter.PrivilegeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>privilegefilter</filter-name>
+    <url-pattern>/admin_index.jsp</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.bank.xy.listener.OrderListener</listener-class>
+  </listener>
 </web-app>

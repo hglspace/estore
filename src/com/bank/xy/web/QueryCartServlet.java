@@ -35,10 +35,6 @@ public class QueryCartServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
-		if(user == null){//没有登陆
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
 		CartService cs = new CartServiceImpl();
 		List<Cart> list = cs.findUserCart(user.getId());
 		request.getSession().setAttribute("list", list);//放到session里面，方便提交订单的时候用

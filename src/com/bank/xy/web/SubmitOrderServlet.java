@@ -40,10 +40,6 @@ public class SubmitOrderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
-		if(user==null){//没有登陆
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
 		//开始封装数据
 		//1 封装订单
 		List<Cart> list=(List<Cart>) session.getAttribute("list");

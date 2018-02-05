@@ -41,4 +41,12 @@ public class OrderItemDaoImpl implements OrderItemDao {
 		}
 	}
 
+	@Override
+	public void deleteOrderItems(Connection conn, String oid) throws SQLException {
+
+		QueryRunner qr = new QueryRunner();
+		String sql = "delete from orderitems where oid=?";
+		qr.update(conn, sql, oid);
+	}
+
 }

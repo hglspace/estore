@@ -59,5 +59,38 @@ public class OrdersDaoImpl implements OrdersDao {
 			throw new RuntimeException("查询订单出错");
 		}
 	}
+	@Override
+	public void deleteOrder(Connection conn, String oid) throws SQLException {
+		// TODO Auto-generated method stub
+		QueryRunner qr = new QueryRunner();
+		String sql = "delete from orders where id=?";
+		qr.update(conn, sql, oid);
+	}
+	@Override
+	public List<Orders> queryOrderStatus(int status) {
+		// TODO Auto-generated method stub
+		QueryRunner qr= new QueryRunner(dataSource);
+		String sql = "select * from orders where status=?";
+		try {
+			return qr.query(sql, new BeanListHandler<Orders>(Orders.class), status);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("根据状态查询订单出错");
+		}
+	}
+	@Override
+	public void updateOrderStatus(String id) {
+		// TODO Auto-generated method stub
+		QueryRunner qr= new QueryRunner(dataSource);
+		String sql = "update orders set status=3 where id=?";
+		try {
+			qr.update(sql, id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("更新订单状态失败");
+		}
+	}
 
 }

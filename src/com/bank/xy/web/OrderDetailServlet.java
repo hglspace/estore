@@ -34,10 +34,6 @@ public class OrderDetailServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
-		if(user==null){//没有登陆
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
 		int uid = user.getId();
 		String oid = request.getParameter("oid");
 		OrdersService os = new OrdersServiceImpl();

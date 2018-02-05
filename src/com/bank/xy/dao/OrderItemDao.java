@@ -12,4 +12,6 @@ public interface OrderItemDao {
 
 	List<OrderItems> findByOid(String oid);
 
+	void deleteOrderItems(Connection conn, String oid) throws SQLException;
+
 }

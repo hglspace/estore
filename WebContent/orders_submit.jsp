@@ -10,6 +10,7 @@
 <meta name="Description" content="" />
 <title>提交订单</title>
 <%@include file="inc/common_head.jsp"%>
+<script type="text/javascript" src="js/PCASClass.js"></script>
 </head>
 <body>
 	<%@include file="inc/header.jsp"%>
@@ -29,17 +30,20 @@
 				<td bgcolor="#ffffff" align="right" width="120px">区域信息：</td>
 				<td bgcolor="#ffffff">
 					<!-- 省 -->
-					<select id="province">
+					<select id="province" name="province">
 						<option value="">-- 请选择省 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 市 -->
-					<select id="city">
+					<select id="city" name="city">
 						<option value="">-- 请选择市 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 县(区) -->
-					<select id="district">
+					<select id="district" name="area">
 						<option value="">-- 请选择县(区) --</option>
 					</select>
+					<script type="text/javascript">
+					  new PCAS("province","city","area");
+					</script>
 				</td>
 			</tr>
 			<tr>

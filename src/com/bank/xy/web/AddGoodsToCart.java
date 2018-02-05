@@ -33,10 +33,6 @@ public class AddGoodsToCart extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
-		if(user==null){//没有登陆
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
 		String goodsIds=request.getParameter("id");
 		String buynums=request.getParameter("buynum");
 		int goodsId=Integer.valueOf(goodsIds);

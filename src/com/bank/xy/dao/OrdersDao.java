@@ -14,4 +14,10 @@ public interface OrdersDao {
 
 	Orders findOrderByOidAndUid(String oid, int uid);
 
+	void deleteOrder(Connection conn, String oid) throws SQLException;
+
+	List<Orders> queryOrderStatus(int status);
+
+	void updateOrderStatus(String id);
+
 }

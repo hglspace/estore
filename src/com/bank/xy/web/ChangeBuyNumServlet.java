@@ -33,10 +33,6 @@ public class ChangeBuyNumServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("loginUser");
-		if(user==null){//没有登陆
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
 		String gids=request.getParameter("gid");
 		String bn=request.getParameter("buynum");
 		int gid=Integer.valueOf(gids);

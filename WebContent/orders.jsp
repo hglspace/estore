@@ -61,7 +61,14 @@
 								</td>
 								<td align="center" bgcolor="#ffffff">
 									<a href="orders_detail.jsp">在线支付</a>&nbsp;
-									<a href="javascript:;">取消订单</a>
+									<a href="javascript:void(0);" onclick="_delete('${order.id}')">取消订单</a>
+									<script type="text/javascript">
+									  function _delete(oid){
+										  if(confirm('确定取消吗?')){
+											  location.href="/estore/deleteOrderServlet?id="+oid;
+										  }
+									  }
+									</script>
 								</td>
 							</tr>
 							</c:forEach>
