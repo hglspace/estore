@@ -156,4 +156,20 @@
   <listener>
     <listener-class>com.bank.xy.listener.OrderListener</listener-class>
   </listener>
+  <servlet>
+    <servlet-name>addgoods</servlet-name>
+    <servlet-class>com.bank.xy.web.AddGoodsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addgoods</servlet-name>
+    <url-pattern>/addGoodsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>queryadmingoods</servlet-name>
+    <servlet-class>com.bank.xy.web.QueryAdminGoodsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>queryadmingoods</servlet-name>
+    <url-pattern>/queryAdminGoodsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

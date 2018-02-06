@@ -10,4 +10,6 @@ public interface GoodsDao {
 
 	Goods findById(int id);
 
+	void addGoods(Goods goods);
+
 }

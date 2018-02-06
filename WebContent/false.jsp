@@ -5,7 +5,7 @@
 <HEAD>
 <title>当前用户权限不足，请联系管理员</title>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="10;URL=http://127.0.0.1:8080/estore04">
+<meta http-equiv="refresh" content="10;URL=http://127.0.0.1:8080/estore">
 <STYLE type=text/css>
 INPUT {FONT-SIZE: 12px}
 TD {FONT-SIZE: 12px}

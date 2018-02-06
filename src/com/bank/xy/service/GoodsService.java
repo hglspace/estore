@@ -10,4 +10,6 @@ public interface GoodsService {
 
 	Goods findById(int id);
 
+	void addGoods(Goods goods);
+
 }

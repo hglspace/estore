@@ -19,5 +19,10 @@ public class GoodsServiceImpl implements GoodsService {
 	public Goods findById(int id) {
 		return gs.findById(id);
 	}
+	@Override
+	public void addGoods(Goods goods) {
+
+		gs.addGoods(goods);
+	}
 
 }

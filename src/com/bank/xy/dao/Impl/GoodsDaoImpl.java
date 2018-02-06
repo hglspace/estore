@@ -41,5 +41,21 @@ public class GoodsDaoImpl implements GoodsDao {
 		    throw new RuntimeException("查询商品详情失败");
 	    }
 	}
+	@Override
+	public void addGoods(Goods goods) {
+		// TODO Auto-generated method stub
+		//创建queryrunner对象
+		QueryRunner qr = new QueryRunner(dataSource);
+		//编写sql语句
+		String sql = "insert into goods values(null,?,?,?,?,?,?,?)";
+		//执行sql语句
+		try {
+			qr.update(sql, goods.getName(),goods.getMarketprice(),goods.getEstoreprice(),goods.getCategory(),goods.getNum(),goods.getImgurl(),goods.getDescription());
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("插入商品信息出错");
+		}
+
+	}
 
 }

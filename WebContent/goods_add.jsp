@@ -24,7 +24,7 @@
 				<div class="box_1">
 					<div class="art-post-body">
 									  <!-- 添加商品表单 -->
-									  	<form method="post" enctype="multipart/form-data" action="" onsubmit="return validateForm();">
+									  	<form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/addGoodsServlet" onsubmit="return validateForm();">
 											<table>
 												<tr>
 													<td>商品名称</td>
