@@ -63,6 +63,10 @@ public class LoginServlet extends HttpServlet {
 
         request.getSession().setAttribute("loginUser", user);
         response.sendRedirect(request.getContextPath()+"/index.jsp");
+        //获得项目部署之后的真实路径
+        System.out.println(request.getServletContext().getRealPath("/upload"));
+        //获得项目部署之后的部分访问路径
+        System.out.println(request.getServletContext().getContextPath());
 	}
 
 	/**
